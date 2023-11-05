@@ -8,6 +8,9 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, wasm-game-of-life!");
+pub fn greet(name: &str) {
+    let mut res: String = "Hello, ".to_owned();
+    res.push_str(name);
+    res.push_str(", from wasm-game-of-life!");
+    alert(&res);
 }
