@@ -103,6 +103,26 @@ impl Universe {
   pub fn render(&self) -> String {
     self.to_string()
   }
+
+  pub fn width(&self) -> u32 {
+    self.width
+  }
+
+  pub fn height(&self) -> u32 {
+    self.height
+  }
+
+  pub fn cells(&self) -> *const Cell {
+    self.cells.as_ptr()
+  }
+
+  pub fn generation(&self) -> u32 {
+    self.generation
+  }
+
+  pub fn live_cells(&self) -> u32 {
+    self.cells.iter().fold(0 as u32, |a, b: &Cell| a + *b as u32 )
+  }
 }
 
 
